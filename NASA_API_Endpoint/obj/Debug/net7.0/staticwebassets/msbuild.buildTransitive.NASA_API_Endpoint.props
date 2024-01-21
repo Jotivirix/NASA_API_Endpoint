@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../buildMultiTargeting/NASA_API_Endpoint.props" />
+</Project>

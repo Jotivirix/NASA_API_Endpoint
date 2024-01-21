@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "G+H++LdcAaXdr06YT3oOBmQpZ0uTgmoBX7fOWCD9544=",
+  "Source": "NASA_API_Endpoint",
+  "BasePath": "_content/NASA_API_Endpoint",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

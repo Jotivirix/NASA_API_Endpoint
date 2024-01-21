@@ -1,4 +1,31 @@
 ﻿<Properties StartupConfiguration="{86F0826F-92E7-4120-81D4-2F3AAF4FE2B8}|https">
-  <MonoDevelop.Ide.ItemProperties.NASA__API__Endpoint FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.NASA__API__Endpoint PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="NASA_API_Endpoint/Controllers/AsteroidsController.cs">
+    <Files>
+      <File FileName="NASA_API_Endpoint/Controllers/WeatherForecastController.cs" Line="5" Column="1" />
+      <File FileName="NASA_API_Endpoint/Program.cs" Line="1" Column="1" />
+      <File FileName="NASA_API_Endpoint/WeatherForecast.cs" Line="1" Column="1" />
+      <File FileName="NASA_API_Endpoint/appsettings.json" Line="1" Column="1" />
+      <File FileName="NASA_API_Endpoint/Controllers/AsteroidsController.cs" Line="16" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="NASA_API_Endpoint">
+            <Node name="NASA_API_Endpoint">
+              <Node name="Controllers" expanded="True">
+                <Node name="AsteroidsController.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>
