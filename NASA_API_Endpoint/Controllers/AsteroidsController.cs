@@ -15,7 +15,7 @@ public class AsteroidsController : ControllerBase
 {
     string API_KEY = "zdUP8ElJv1cehFM0rsZVSQN7uBVxlDnu4diHlLSb";
 
-    public AsteroidsController() {}
+    public AsteroidsController() { }
 
     [HttpGet]
     public async Task<IActionResult> Get(int days)
@@ -42,38 +42,33 @@ public class AsteroidsController : ControllerBase
             {
                 string apiResponse = await response.Content.ReadAsStringAsync();
 
-                var jObjectResult = JObject.Parse(apiResponse)["near_earth_objects"];
+                var jObjectResult = JObject.Parse(apiResponse)["near_earth_objects"].Children().Children().Children();
 
-                foreach (var day in jObjectResult!)
+
+                foreach (var asteroid in jObjectResult)
                 {
-                    //Iterate over each day trying to find any hazardous object
-                    foreach (var resultsFromDay in day)
+                    var isValid = (bool)asteroid["is_potentially_hazardous_asteroid"]!;
+
+                    if (isValid)
                     {
-                        foreach (var hazardousObject in resultsFromDay)
-                        {
-                            //Here we have to search for the object.
-                            var isValid = (bool)hazardousObject["is_potentially_hazardous_asteroid"]!;
-                            if (isValid)
-                            {
-                                double diameter = ((double)hazardousObject["estimated_diameter"]!["kilometers"]!["estimated_diameter_min"]! +
-                                    (double)hazardousObject["estimated_diameter"]!["kilometers"]!["estimated_diameter_max"]!) / 2;
+                        double diameter = (
+                            (double)asteroid["estimated_diameter"]!["kilometers"]!["estimated_diameter_min"]! +
+                            (double)asteroid["estimated_diameter"]!["kilometers"]!["estimated_diameter_max"]!
+                        ) / 2.0;
 
-                                //The item is hazardous. Build Object
-                                AsteroidModel asteroid = new AsteroidModel();
-                                asteroid.name = hazardousObject["name"]!.ToString();
-                                asteroid.diameter = diameter;
-                                asteroid.speed = (double)hazardousObject["close_approach_data"]![0]!["relative_velocity"]!["kilometers_per_hour"]!;
-                                asteroid.date = hazardousObject["close_approach_data"]![0]!["close_approach_date"]!.ToString();
-                                asteroid.planet = hazardousObject["close_approach_data"]![0]!["orbiting_body"]!.ToString();
+                        //The item is hazardous. Build Object
+                        AsteroidModel _asteroid = new AsteroidModel();
+                        _asteroid.name = asteroid["name"]!.ToString();
+                        _asteroid.diameter = diameter;
+                        _asteroid.speed = (double)asteroid["close_approach_data"]![0]!["relative_velocity"]!["kilometers_per_hour"]!;
+                        _asteroid.date = asteroid["close_approach_data"]![0]!["close_approach_date"]!.ToString();
+                        _asteroid.planet = asteroid["close_approach_data"]![0]!["orbiting_body"]!.ToString();
 
-                                validData.Add(asteroid);
-                            }
-                        }
-
+                        validData.Add(asteroid);
                     }
                 }
 
-                return Ok(apiResponse);
+                return Ok(validData);
             }
         }
     }
