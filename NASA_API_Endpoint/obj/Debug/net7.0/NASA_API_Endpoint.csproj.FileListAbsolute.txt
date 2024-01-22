@@ -31,3 +31,4 @@
 /Users/joseignacionavassanz/Projects/NASA_API_Endpoint/NASA_API_Endpoint/obj/Debug/net7.0/NASA_API_Endpoint.pdb
 /Users/joseignacionavassanz/Projects/NASA_API_Endpoint/NASA_API_Endpoint/obj/Debug/net7.0/NASA_API_Endpoint.genruntimeconfig.cache
 /Users/joseignacionavassanz/Projects/NASA_API_Endpoint/NASA_API_Endpoint/obj/Debug/net7.0/ref/NASA_API_Endpoint.dll
+/Users/joseignacionavassanz/Projects/NASA_API_Endpoint/NASA_API_Endpoint/bin/Debug/net7.0/Newtonsoft.Json.dll
