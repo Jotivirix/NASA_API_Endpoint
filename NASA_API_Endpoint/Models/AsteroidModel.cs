@@ -4,20 +4,20 @@ namespace NASA_API_Endpoint.Models
 {
 	public class AsteroidModel
 	{
-		[JsonProperty("nombre")]
-		public string Name { get; set; }
+		[JsonProperty(PropertyName = "nombre")]
+		public string? Nombre { get; set; }
 
         [JsonProperty("diametro")]
-        public double Diameter { get; set; }
+        public double? Diametro { get; set; }
 
         [JsonProperty("velocidad")]
-        public double Speed { get; set; }
+        public double? Velocidad { get; set; }
 
         [JsonProperty("fecha")]
-        public string Date { get; set; }
+        public string? Fecha { get; set; }
 
         [JsonProperty("planeta")]
-        public string Planet { get; set; }
+        public string? Planeta { get; set; }
     }
 }
 

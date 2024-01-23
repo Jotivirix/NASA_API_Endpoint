@@ -55,19 +55,20 @@ public class AsteroidsController : ControllerBase
 
                         //The item is hazardous. Build Object
                         AsteroidModel _asteroid = new AsteroidModel();
-                        _asteroid.Name = asteroid["name"]!.ToString();
-                        _asteroid.Diameter = diameter;
-                        _asteroid.Speed = (double)asteroid["close_approach_data"]![0]!["relative_velocity"]!["kilometers_per_hour"]!;
-                        _asteroid.Date = asteroid["close_approach_data"]![0]!["close_approach_date"]!.ToString();
-                        _asteroid.Planet = asteroid["close_approach_data"]![0]!["orbiting_body"]!.ToString();
+                        _asteroid.Nombre = asteroid["name"]!.ToString();
+                        _asteroid.Diametro = diameter;
+                        _asteroid.Velocidad = (double)asteroid["close_approach_data"]![0]!["relative_velocity"]!["kilometers_per_hour"]!;
+                        _asteroid.Fecha = asteroid["close_approach_data"]![0]!["close_approach_date"]!.ToString();
+                        _asteroid.Planeta = asteroid["close_approach_data"]![0]!["orbiting_body"]!.ToString();
 
                         validData.Add(_asteroid);
                     }
                 }
 
+                //Order the elements and keep TOP3 most dangerous
+                validData = validData.OrderByDescending(t => t.Diametro).Take(3).ToList();
 
-
-                var results = JsonConvert.SerializeObject(validData, Formatting.Indented);
+                //var results = JsonConvert.SerializeObject(validData, Formatting.Indented);
 
                 return Ok(validData);
             }
