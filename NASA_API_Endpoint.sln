@@ -5,6 +5,8 @@ VisualStudioVersion = 25.0.1706.5
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NASA_API_Endpoint", "NASA_API_Endpoint\NASA_API_Endpoint.csproj", "{86F0826F-92E7-4120-81D4-2F3AAF4FE2B8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NASA_API_Endpoint_Tests", "NASA_API_Endpoint_Tests\NASA_API_Endpoint_Tests.csproj", "{F53AA801-444E-44A2-8F28-FBB6A45EAAB6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{86F0826F-92E7-4120-81D4-2F3AAF4FE2B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86F0826F-92E7-4120-81D4-2F3AAF4FE2B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86F0826F-92E7-4120-81D4-2F3AAF4FE2B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F53AA801-444E-44A2-8F28-FBB6A45EAAB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F53AA801-444E-44A2-8F28-FBB6A45EAAB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F53AA801-444E-44A2-8F28-FBB6A45EAAB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F53AA801-444E-44A2-8F28-FBB6A45EAAB6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,8 +1,6 @@
 ﻿<Properties StartupConfiguration="{86F0826F-92E7-4120-81D4-2F3AAF4FE2B8}|https">
   <MonoDevelop.Ide.ItemProperties.NASA__API__Endpoint PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints />
   <MonoDevelop.Ide.Workbench ActiveDocument="NASA_API_Endpoint/Controllers/AsteroidsController.cs">
     <Files>
       <File FileName="NASA_API_Endpoint/Controllers/WeatherForecastController.cs" Line="5" Column="1" />
@@ -25,6 +23,7 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.NASA__API__Endpoint__Tests FirstBuild="True" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
