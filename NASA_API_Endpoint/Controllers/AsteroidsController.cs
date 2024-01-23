@@ -1,10 +1,8 @@
-﻿using System;
+﻿using System.Collections;
 using Microsoft.AspNetCore.Mvc;
-using static System.Net.WebRequestMethods;
-using Newtonsoft.Json;
 using NASA_API_Endpoint.Models;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System.Collections;
 
 namespace NASA_API_Endpoint.Controllers;
 
@@ -34,7 +32,7 @@ public class AsteroidsController : ControllerBase
 
         string url = $"https://api.nasa.gov/neo/rest/v1/feed?start_date={startDate}&end_date={endDate}&api_key={API_KEY}";
 
-        ArrayList validData = new ArrayList();
+        List<AsteroidModel> validData = new List<AsteroidModel>();
 
         using (var httpClient = new HttpClient())
         {
@@ -42,8 +40,7 @@ public class AsteroidsController : ControllerBase
             {
                 string apiResponse = await response.Content.ReadAsStringAsync();
 
-                var jObjectResult = JObject.Parse(apiResponse)["near_earth_objects"].Children().Children().Children();
-
+                var jObjectResult = JObject.Parse(apiResponse)!["near_earth_objects"]!.Children().Children().Children();
 
                 foreach (var asteroid in jObjectResult)
                 {
@@ -58,15 +55,19 @@ public class AsteroidsController : ControllerBase
 
                         //The item is hazardous. Build Object
                         AsteroidModel _asteroid = new AsteroidModel();
-                        _asteroid.name = asteroid["name"]!.ToString();
-                        _asteroid.diameter = diameter;
-                        _asteroid.speed = (double)asteroid["close_approach_data"]![0]!["relative_velocity"]!["kilometers_per_hour"]!;
-                        _asteroid.date = asteroid["close_approach_data"]![0]!["close_approach_date"]!.ToString();
-                        _asteroid.planet = asteroid["close_approach_data"]![0]!["orbiting_body"]!.ToString();
+                        _asteroid.Name = asteroid["name"]!.ToString();
+                        _asteroid.Diameter = diameter;
+                        _asteroid.Speed = (double)asteroid["close_approach_data"]![0]!["relative_velocity"]!["kilometers_per_hour"]!;
+                        _asteroid.Date = asteroid["close_approach_data"]![0]!["close_approach_date"]!.ToString();
+                        _asteroid.Planet = asteroid["close_approach_data"]![0]!["orbiting_body"]!.ToString();
 
-                        validData.Add(asteroid);
+                        validData.Add(_asteroid);
                     }
                 }
+
+
+
+                var results = JsonConvert.SerializeObject(validData, Formatting.Indented);
 
                 return Ok(validData);
             }

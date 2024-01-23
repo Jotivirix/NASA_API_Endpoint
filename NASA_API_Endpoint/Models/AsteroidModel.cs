@@ -1,24 +1,23 @@
-﻿using System;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace NASA_API_Endpoint.Models
 {
 	public class AsteroidModel
 	{
 		[JsonProperty("nombre")]
-		public string name;
+		public string Name { get; set; }
 
         [JsonProperty("diametro")]
-        public double diameter;
+        public double Diameter { get; set; }
 
         [JsonProperty("velocidad")]
-        public double speed;
+        public double Speed { get; set; }
 
         [JsonProperty("fecha")]
-        public string date;
+        public string Date { get; set; }
 
         [JsonProperty("planeta")]
-        public string planet;
+        public string Planet { get; set; }
     }
 }
 
