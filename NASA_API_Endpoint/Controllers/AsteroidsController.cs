@@ -65,14 +65,16 @@ public class AsteroidsController : ControllerBase
                     }
                 }
 
-
-
-                //Order the elements and keep TOP3 most dangerous
-                validData = validData.OrderByDescending(t => t.Diametro).Take(3).ToList();
+                validData = SortAndFilterTop3(validData);                
 
                 return Ok(validData);
             }
         }
+    }
+
+    public List<AsteroidModel> SortAndFilterTop3(List<AsteroidModel> validData)
+    {
+        return validData.OrderByDescending(t => t.Diametro).Take(3).ToList();
     }
 }
 
