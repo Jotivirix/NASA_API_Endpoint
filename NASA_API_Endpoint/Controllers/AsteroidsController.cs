@@ -65,10 +65,10 @@ public class AsteroidsController : ControllerBase
                     }
                 }
 
+
+
                 //Order the elements and keep TOP3 most dangerous
                 validData = validData.OrderByDescending(t => t.Diametro).Take(3).ToList();
-
-                //var results = JsonConvert.SerializeObject(validData, Formatting.Indented);
 
                 return Ok(validData);
             }

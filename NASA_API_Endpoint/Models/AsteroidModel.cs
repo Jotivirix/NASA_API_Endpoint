@@ -1,13 +1,15 @@
-﻿using Newtonsoft.Json;
+﻿using System.ComponentModel.DataAnnotations;
+using Newtonsoft.Json;
 
 namespace NASA_API_Endpoint.Models
 {
 	public class AsteroidModel
 	{
 		[JsonProperty(PropertyName = "nombre")]
+        [Key]
 		public string? Nombre { get; set; }
 
-        [JsonProperty("diametro")]
+        [JsonProperty("diametro")]        
         public double? Diametro { get; set; }
 
         [JsonProperty("velocidad")]
